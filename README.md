@@ -1,4 +1,4 @@
-![Alt text](hoovesup.png?raw=true "Logo")
+![Alt text](hoovesupicon.png?raw=true "Logo")
 
 HoovesUp
 -------------------------------------------
