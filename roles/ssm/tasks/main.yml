@@ -1,0 +1,30 @@
+---
+
+- name: Install jq, which is used in the SSM bash script
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=28000
+  with_items:
+       - jq # used to parse the SSM activation bash script
+
+- name: Cron that will check for SSM Agent status every 5 minutes and set it up if needed
+  cron:
+    name: "Check for SSM Agent status every 5 minutes and set it up if needed"
+    minute: "*/5"
+    job: "sudo su -c \"cd /opt/k8s_provisioning/roles/bootstrap/files && . ssm.sh\""
+    state: present
+
+# this is based on the AWS SSM installation instructions for hybrid environments
+# https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-managed-instance-activation.html
+
+- name: Make the SSM directory
+  file: path=/tmp/ssm state=directory
+
+- name: Download the SSM agent
+  get_url:
+    url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+    dest: /tmp/ssm/amazon-ssm-agent.deb
+    mode: 0440
+
+- name: Unpack SSM download
+  shell: dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+  args:
+    executable: /bin/bash

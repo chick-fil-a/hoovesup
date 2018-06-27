@@ -1,0 +1,5 @@
+---
+- name: provision the servers/devices with SSM and the self-provisioning SSM script
+  hosts: instances
+  roles:
+    - ssm
