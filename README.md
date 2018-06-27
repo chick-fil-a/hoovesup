@@ -1,4 +1,6 @@
-![Alt text](hoovesupicon.png?raw=true "Logo")
+<p align="center">
+  <img alt="HoovesUp Logo" src="hoovesupicon.png" height="140" />
+</p>
 
 HoovesUp
 -------------------------------------------
