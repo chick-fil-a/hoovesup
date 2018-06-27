@@ -1,3 +1,5 @@
+![Alt text](hoovesup.png?raw=true "Logo")
+
 HoovesUp
 -------------------------------------------
 
