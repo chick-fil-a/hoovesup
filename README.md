@@ -1,11 +1,12 @@
-![Alt text](hoovesupicon.png?raw=true "Logo")
+<p align="center">
+  <img alt="HoovesUp Logo" src="hoovesupicon.png" height="140" />
+  <h3 align="center">HoovesUp</h3>
+  <p align="center">Create self-provisioning and self-healing SSM agents on bare-metal devices</p>
+</p>
 
-HoovesUp
 -------------------------------------------
 
-The purpose of HoovesUp is to create self-provisioning and self-healing SSM Agents on bare-metal devices.
-
-This is a simple script that does three things;
+HoovesUp is a simple script that does three things;
 1. The provided Ansible script provisions your bare metal servers, installing the SSM Agent as well as the ssm.sh script
 2. Installs a crontab that runs every 5 minutes on the server, executing the ssm.sh bash script
 3. When the ssm.sh script gets invoked, it checks to see if SSM has been configured and is working... if not, it will enroll itself to your AWS SSM account
