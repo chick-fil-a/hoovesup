@@ -18,7 +18,8 @@ Follow these instructions; https://docs.aws.amazon.com/sdk-for-java/v1/developer
 
 2. Your AWS Credentials will require (at a minimum) the following IAM policies;
 
-```{
+```
+{
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -35,12 +36,13 @@ Follow these instructions; https://docs.aws.amazon.com/sdk-for-java/v1/developer
             "Resource": "*"
         }
     ]
-}```
+}
+```
 
 3. The NUC's require the SSM agent, and jq to be installed. You can use the provision.yml to get the box ready.
 Sample command;
 
-```ssh
+```
 ansible-playbook -i hosts/dev_example provision.yml
 ```
 
