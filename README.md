@@ -31,7 +31,8 @@ Follow these instructions; https://docs.aws.amazon.com/sdk-for-java/v1/developer
                 "ssm:CreateActivation",
                 "ssm:DescribeActivations",
                 "ssm:DeleteAssociation",
-                "iam:AddRoleToInstanceProfile"
+                "iam:AddRoleToInstanceProfile",
+                "ssm:UpdateInstanceInformation"
             ],
             "Resource": "*"
         }
