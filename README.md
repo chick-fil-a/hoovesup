@@ -39,14 +39,34 @@ Follow these instructions; https://docs.aws.amazon.com/sdk-for-java/v1/developer
 }
 ```
 
-3. The NUC's require the SSM agent, and jq to be installed. You can use the provision.yml to get the box ready.
+3. The SSM Role also needs a Trust Relationship allowing both EC2 and SSM access. Go to your shiny new role and edit the Trust Relationship with the following;
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "ssm.amazonaws.com",
+          "ec2.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+4. The NUC's require the SSM agent, and jq to be installed. You can use the provision.yml to get the box ready.
 Sample command;
 
 ```
 ansible-playbook -i hosts/dev_example provision.yml
 ```
 
-4. This Ansible repo only works for Ubuntu at this time. Minor modifications should allow it to work on other Linux OS's
+5. This Ansible repo only works for Ubuntu at this time. Minor modifications should allow it to work on other Linux OS's
 
 #### EXAMPLE USAGE:
 
